@@ -1,0 +1,30 @@
+FUNCTION Palindrome(mot:string) : boolean
+VAR
+    inverse:STRING
+    j,i:INTEGER
+BEGIN
+    FOR i FROM mot.length-1 TO 0 STEP -1  DO
+        inverse:=inverse+mot[i]
+    END_FOR
+    FOR i FROM 0 TO mot.length-1 STEP 1  DO
+        FOR j FROM 0 TO inverse.length-1 STEP 1  DO
+            if (mot[i]!=inverse[j])then
+                RETURN false
+        END_FOR
+    END_FOR
+    RETURN true
+END
+
+
+ALGORITHM main
+VAR
+    mot:STRING
+BEGIN
+    read(mot)   
+    IF (Palindrome:=true) THEN
+        write("le mot est palindrome")
+    ELSE
+        write("le mot n'est pas palindrome")
+    END_IF
+    
+END
